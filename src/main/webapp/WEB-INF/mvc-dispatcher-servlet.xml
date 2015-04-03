@@ -8,7 +8,7 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <context:component-scan base-package="controller" />
+    <context:component-scan base-package="rf.vdolgu.controller" />
     <mvc:annotation-driven />
 
     <bean

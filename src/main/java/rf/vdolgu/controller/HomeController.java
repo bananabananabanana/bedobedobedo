@@ -1,4 +1,4 @@
-package controller;
+package rf.vdolgu.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
