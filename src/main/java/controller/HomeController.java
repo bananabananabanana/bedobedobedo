@@ -12,7 +12,6 @@ public class HomeController {
 
     public HomeController(){
         System.out.println("HomeController");
-        
     }
 
     @RequestMapping(method = RequestMethod.GET)
