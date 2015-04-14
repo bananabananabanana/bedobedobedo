@@ -2,10 +2,6 @@ package rf.vdolgu.dao;
 
 import rf.vdolgu.model.User;
 
-import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -14,11 +10,21 @@ import java.util.List;
 public class UserDAOImpl implements UserDAO {
     @Override
     public List<User> getAllUsers() {
+
         Connect connect = new Connect();
 
-        List<User> users = connect.main();
+        List<User> users = connect.getAllUsers();
 
         return users;
+    }
+
+    @Override
+    public void insertUser(User user) {
+
+        Connect connect = new Connect();
+
+        connect.insertUser(user);
+
     }
 
 /*    @Override
