@@ -1,5 +1,6 @@
 package rf.vdolgu.controller;
 
+import jdk.nashorn.internal.parser.JSONParser;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -7,12 +8,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.Serializable;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
 @Controller
 @RequestMapping("/")
-public class MainController {
+public class MainController implements Serializable {
 
     private final String USER_AGENT = "Mozilla/5.0";
 
@@ -32,7 +34,18 @@ public class MainController {
         System.out.println(code);
         if (code != null) {
             try {
-                sendGet(code);
+                String ResponseCode = sendGet(code);
+                System.out.println(ResponseCode);
+
+                //insert JSON serialaized (нада спросить)
+                //
+                // JSONParser parser = new JSONParser();
+
+                //Object obj = parser.parse(ResponseCode);
+                //JSONObject jsonObj = (JSONObject) obj;
+                //System.out.println(jsonObj.get("paramsStr"));
+                //System.out.println(obj);
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -42,7 +55,7 @@ public class MainController {
     }
 
     // HTTP GET request
-    private void sendGet(String code) throws Exception {
+    private String sendGet(String code) throws Exception {
         String url = "https://oauth.vk.com/access_token?" +
                 "client_id=4877168&" +
                 "client_secret=MFA0tWhWgY5SnvO1hSBm&" +
@@ -75,6 +88,7 @@ public class MainController {
 
         //print result
         System.out.println(response.toString());
+        return response.toString();
     }
 
 }
