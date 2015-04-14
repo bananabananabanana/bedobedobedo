@@ -10,5 +10,4 @@ import java.util.List;
 public interface UserDAO {
     public List<User> getAllUsers();
     public void insertUser(User user);
-    //public User findByCustomerId(int custId);
 }

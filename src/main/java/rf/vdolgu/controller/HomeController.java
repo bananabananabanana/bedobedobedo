@@ -22,9 +22,6 @@ public class HomeController {
 
     UserDAO userDAO = new UserDAOImpl();
 
-
-    UserDAOImpl userDAOd = new UserDAOImpl();
-
     @RequestMapping(method = RequestMethod.GET)
     public String index() {
         return "index";
@@ -33,7 +30,6 @@ public class HomeController {
     @RequestMapping(value = "/getData", method = RequestMethod.GET)
     @ResponseBody
     public List<User> getData() {
-
 
         User user = new User();
         userDAO.insertUser(new User("niko"));

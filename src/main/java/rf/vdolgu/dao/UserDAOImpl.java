@@ -27,13 +27,4 @@ public class UserDAOImpl implements UserDAO {
 
     }
 
-/*    @Override
-    public void insert(User user) {
-
-    }
-
-    @Override
-    public User findByCustomerId(int custId) {
-        return null;
-    }*/
 }

@@ -15,6 +15,9 @@ public class MainController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String index() {
+
+        String URL = "";
+
         return "index";
     }
 
