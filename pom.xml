@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>net.bonvio</groupId>
-    <artifactId>os</artifactId>
+    <artifactId>xn--b1acc2ao6a.xn--p1ai</artifactId>
     <packaging>war</packaging>
     <version>0.0.1</version>
     <name>os Maven Webapp</name>
@@ -122,7 +122,19 @@
             <version>1.2</version>
         </dependency>
     </dependencies>
+<!--    <build>
+        <finalName>xn&#45;&#45;b1acc2ao6a.xn&#45;&#45;p1ai</finalName>
+    </build>-->
     <build>
-        <finalName>os</finalName>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                    <fork>true</fork>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 </project>

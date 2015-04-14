@@ -1,4 +1,8 @@
 <section ng-init="getUser()">
-    <h2>User: {{user.name}}</h2>
-    <h2>Age: {{user.age}}</h2>
+    <ul>
+        <li ng-repeat="user in users">
+            <h2>User: {{user.name}}</h2>
+            <h2>Age: {{user.age}}</h2>
+        </li>
+    </ul>
 </section>

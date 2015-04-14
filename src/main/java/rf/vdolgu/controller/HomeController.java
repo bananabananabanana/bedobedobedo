@@ -5,6 +5,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import rf.vdolgu.dao.UserDAO;
+import rf.vdolgu.dao.UserDAOImpl;
+import rf.vdolgu.model.User;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("/home")
@@ -14,6 +20,11 @@ public class HomeController {
         System.out.println("HomeController");
     }
 
+    UserDAO userDAO = new UserDAOImpl();
+
+
+    UserDAOImpl userDAOd = new UserDAOImpl();
+
     @RequestMapping(method = RequestMethod.GET)
     public String index() {
         return "index";
@@ -21,8 +32,9 @@ public class HomeController {
 
     @RequestMapping(value = "/getData", method = RequestMethod.GET)
     @ResponseBody
-    public String getData() {
-        return "{\"name\":\"Niko\",\"age\":\"22\"}";
+    public List<User> getData() {
+        return userDAO.getAllUsers();
+        //return "[{\"name\":\"Niko\",\"age\":\"22\"},{\"name\":\"Niko\",\"age\":\"22\"}]";
     }
 
     @RequestMapping(value = "/{user}", method = RequestMethod.GET)
