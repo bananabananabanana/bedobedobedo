@@ -37,19 +37,16 @@ public class MainController implements Serializable {
         if (code != null) {
             try {
                 String ResponseCode = sendGet(code);
-                System.out.println(ResponseCode);
+                System.out.println("print result after sendGet: " + ResponseCode);
 
                 //insert JSON serialaized
                 JSONParser parser = new JSONParser();
-
                 Object obj = parser.parse(ResponseCode);
-
                 JSONObject jsonObj = (JSONObject) obj;
-
                 String access_token = jsonObj.get("access_token").toString();
-
-                System.out.println(jsonObj.get("access_token"));
-                System.out.println(obj);
+                String user_id = jsonObj.get("user_id").toString();
+                System.out.println("print access_token: " + jsonObj.get("access_token"));
+                System.out.println("print user_id: " + jsonObj.get("user_id"));
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -92,7 +89,7 @@ public class MainController implements Serializable {
         in.close();
 
         //print result
-        System.out.println(response.toString());
+        System.out.println("print result: " + response.toString());
         return response.toString();
     }
 

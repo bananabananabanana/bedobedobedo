@@ -83,8 +83,9 @@ public class Connect {
             connection = DriverManager.getConnection(URL, LOGIN, PASSWORD);
             Statement statement = connection.createStatement();
             statement.
-                    executeUpdate("INSERT INTO users (name) VALUE ('" + user.getName() + "');");
-
+                    /*executeUpdate("INSERT INTO users (name) VALUE ('" + user.getName() + "');");*/
+                            executeUpdate("INSERT INTO users (name, access_token, user_id) VALUE ('"
+                            + user.getName() + "', '" + "123" + "', " + 123 + ");");
 
         } catch (SQLException e) {
             e.printStackTrace();
