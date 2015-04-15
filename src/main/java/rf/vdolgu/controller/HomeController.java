@@ -30,12 +30,7 @@ public class HomeController {
     @RequestMapping(value = "/getData", method = RequestMethod.GET)
     @ResponseBody
     public List<User> getData() {
-
-        //User user = new User();
-        //userDAO.insertUser(new User("niko"));
-
         return userDAO.getAllUsers();
-        //return "[{\"name\":\"Niko\",\"age\":\"22\"},{\"name\":\"Niko\",\"age\":\"22\"}]";
     }
 
     @RequestMapping(value = "/{user}", method = RequestMethod.GET)
