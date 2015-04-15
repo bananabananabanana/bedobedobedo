@@ -7,6 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import rf.vdolgu.dao.UserDAO;
+import rf.vdolgu.dao.UserDAOImpl;
+import rf.vdolgu.model.User;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -43,10 +46,20 @@ public class MainController implements Serializable {
                 JSONParser parser = new JSONParser();
                 Object obj = parser.parse(ResponseCode);
                 JSONObject jsonObj = (JSONObject) obj;
+
                 String access_token = jsonObj.get("access_token").toString();
                 String user_id = jsonObj.get("user_id").toString();
-                System.out.println("print access_token: " + jsonObj.get("access_token"));
-                System.out.println("print user_id: " + jsonObj.get("user_id"));
+
+                System.out.println("print access_token: " + access_token);
+                System.out.println("print user_id: " + user_id);
+
+                User user = new User();
+                user.setName("banana");
+                user.setAccess_token(access_token);
+                user.setUser_id(new Integer(user_id));
+
+                UserDAO userDAO = new UserDAOImpl();
+                userDAO.insertUser(user);
 
             } catch (Exception e) {
                 e.printStackTrace();

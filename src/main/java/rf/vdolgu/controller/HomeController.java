@@ -31,8 +31,8 @@ public class HomeController {
     @ResponseBody
     public List<User> getData() {
 
-        User user = new User();
-        userDAO.insertUser(new User("niko"));
+        //User user = new User();
+        //userDAO.insertUser(new User("niko"));
 
         return userDAO.getAllUsers();
         //return "[{\"name\":\"Niko\",\"age\":\"22\"},{\"name\":\"Niko\",\"age\":\"22\"}]";

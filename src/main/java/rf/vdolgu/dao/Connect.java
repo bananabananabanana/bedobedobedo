@@ -44,7 +44,9 @@ public class Connect {
             while (resultSet.next()){
                 User user = new User(
                         resultSet.getInt(1),
-                        resultSet.getString(2)
+                        resultSet.getString(2),
+                        resultSet.getString(3),
+                        resultSet.getInt(4)
                 );
                 System.out.println(user.getId() + " _ " + user.getName());
                 users.add(user);
@@ -83,9 +85,9 @@ public class Connect {
             connection = DriverManager.getConnection(URL, LOGIN, PASSWORD);
             Statement statement = connection.createStatement();
             statement.
-                    /*executeUpdate("INSERT INTO users (name) VALUE ('" + user.getName() + "');");*/
-                            executeUpdate("INSERT INTO users (name, access_token, user_id) VALUE ('"
-                            + user.getName() + "', '" + "123" + "', " + 123 + ");");
+                    executeUpdate("INSERT INTO users (name, access_token, user_id) VALUE ('"
+                            + user.getName() + "', '" + user.getAccess_token() + "', " + user.getUser_id() + ");");
+
 
         } catch (SQLException e) {
             e.printStackTrace();
