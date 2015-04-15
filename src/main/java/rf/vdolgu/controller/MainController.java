@@ -1,6 +1,8 @@
 package rf.vdolgu.controller;
 
-import jdk.nashorn.internal.parser.JSONParser;
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -37,14 +39,17 @@ public class MainController implements Serializable {
                 String ResponseCode = sendGet(code);
                 System.out.println(ResponseCode);
 
-                //insert JSON serialaized (нада спросить)
-                //
-                // JSONParser parser = new JSONParser();
+                //insert JSON serialaized
+                JSONParser parser = new JSONParser();
 
-                //Object obj = parser.parse(ResponseCode);
-                //JSONObject jsonObj = (JSONObject) obj;
-                //System.out.println(jsonObj.get("paramsStr"));
-                //System.out.println(obj);
+                Object obj = parser.parse(ResponseCode);
+
+                JSONObject jsonObj = (JSONObject) obj;
+
+                String access_token = jsonObj.get("access_token").toString();
+
+                System.out.println(jsonObj.get("access_token"));
+                System.out.println(obj);
 
             } catch (Exception e) {
                 e.printStackTrace();
