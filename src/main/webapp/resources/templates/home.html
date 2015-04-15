@@ -1,8 +1,18 @@
 <section ng-init="getUser()">
-    <ul>
-        <li ng-repeat="user in users">
-            <h2>{{user.id}} User: {{user.name}} AT: {{user.access_token}} user_id: {{user.user_id}}<button ng-click="alert('ggg')">X</button></h2>
-
-        </li>
+    <table class="table">
+        <thead>
+            <th>id</th>
+            <th>UserName</th>
+            <th>access_token</thd>
+            <th>user_id</th>
+            <th>X</th>
+        </thead>
+        <tr ng-repeat="user in users">
+            <td>{{user.id}}</td>
+            <td>{{user.name}}></td>
+            <td>{{user.access_token}}</td>
+            <td>{{user.user_id}}</td>
+            <td><button>X</button></td>
+        </tr>
     </ul>
 </section>
