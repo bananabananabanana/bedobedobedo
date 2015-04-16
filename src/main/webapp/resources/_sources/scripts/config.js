@@ -1,20 +1,20 @@
 config.$inject = ['$routeProvider', '$locationProvider'];
 function config(routeProvider, locationProvider) {
     routeProvider
-        .when('/', {
-            templateUrl: '/resources/templates/index.html',
+        .when(BASE_PATH + '/', {
+            templateUrl: BASE_PATH + '/resources/templates/index.html',
             controller: 'indexController'
         })
-        .when('/home', {
-            templateUrl: '/resources/templates/home.html',
+        .when(BASE_PATH + '/home', {
+            templateUrl: BASE_PATH + '/resources/templates/home.html',
             controller: 'homeController'
         })
-        .when('/home/:user', {
-            templateUrl: '/resources/templates/user.html',
+        .when(BASE_PATH + '/home/:user', {
+            templateUrl: BASE_PATH + '/resources/templates/user.html',
             controller: 'userController'
         })
         .otherwise({
-            redirectTo: '/'
+            redirectTo: BASE_PATH + '/'
         });
 
     locationProvider.html5Mode(true).hashPrefix('!');
