@@ -71,11 +71,16 @@ public class MainController implements Serializable {
 
     // HTTP GET request
     private String sendGet(String code) throws Exception {
-        String url = "https://oauth.vk.com/access_token?" +
+        /*String url = "https://oauth.vk.com/access_token?" +
                 "client_id=4877168&" +
                 "client_secret=MFA0tWhWgY5SnvO1hSBm&" +
                 "code=" + code + "&" +
-                "redirect_uri=http://vdolgu.mil3.bget.ru";
+                "redirect_uri=http://vdolgu.mil3.bget.ru";*/
+        String url = "https://oauth.vk.com/access_token?" +
+                "client_id=4859620&" +
+                "client_secret=7XNY4yQYAfVatUse3ejy&" +
+                "code=" + code + "&" +
+                "redirect_uri=http://xn--b1acc2ao6a.xn--p1ai";
 
         System.out.println(url);
         URL obj = new URL(url);
