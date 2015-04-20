@@ -2,6 +2,7 @@ package rf.vdolgu.persistence;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
+import org.springframework.context.annotation.Bean;
 
 /**
  * Created by mil on 17.04.15.
