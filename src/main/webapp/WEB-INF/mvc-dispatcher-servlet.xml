@@ -21,6 +21,5 @@
         </property>
     </bean>
 
-    <mvc:resources mapping="/resources/**" location="/resources/" />
-
+    <mvc:resources mapping="/www/**" location="/resources/www/" />
 </beans>

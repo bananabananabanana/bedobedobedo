@@ -1,13 +1,8 @@
 #!/usr/bin/env bash
-
-cd _vendors
-
+cd vendors
 if ! [ -d bower_components ]; then
-    bower install
+bower install
 fi
-
 if ! [ -d node_modules ]; then
-    npm install
+npm install
 fi
-
-gulp

@@ -1,12 +1,11 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" ng-app="app">
 <head>
     <meta charset="UTF-8">
     <meta name="fragment" content="!">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src='/resources/_vendors/bower_components/requirejs/require.js' data-main='/resources/scripts/main'></script>
-    <link href='/resources/styles/app.min.css' rel="stylesheet">
+    <link href="/www/application/app.min.css" rel="stylesheet">
     <base href="/">
 
     <!-- Latest compiled and minified CSS -->
@@ -20,9 +19,9 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <ul class="nav navbar-nav">
-            <li><a href="/">Index</a></li>
-            <li><a href="/home">Home</a></li>
-            <li><a href="/home/john">Home John</a></li>
+            <li><a ng-href="/">Index</a></li>
+            <li><a ng-href="/home">Home</a></li>
+            <li><a ng-href="/home/john">Home John</a></li>
         </ul>
     </div>
 </nav>
@@ -30,5 +29,8 @@
 <div class="container" style="margin-top: 50px;">
     <section ng-view=""></section>
 </div>
+
+<script src="/www/libraries/lib.min.js"></script>
+<script src="/www/application/app.min.js"></script>
 </body>
 </html>

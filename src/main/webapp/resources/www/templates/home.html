@@ -1,0 +1,18 @@
+<table ng-init="getUser()" class="table">
+    <tr>
+        <th>id</th>
+        <th>UserName</th>
+        <th>access_token</th>
+        <th>user_id</th>
+        <th>controll</th>
+    </tr>
+    <tr ng-repeat="user in users">
+        <td>{{user.id}}</td>
+        <td>{{user.name}}></td>
+        <td>{{user.access_token}}</td>
+        <td>{{user.user_id}}</td>
+        <td>
+            <button class="btn btn-default">delRecord</button>
+        </td>
+    </tr>
+</table>
