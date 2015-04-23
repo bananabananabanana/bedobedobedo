@@ -1,7 +1,11 @@
 package rf.vdolgu.model;
 
-import javax.persistence.*;
-
+import javax.persistence.Entity;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 
 
@@ -13,18 +17,15 @@ import java.util.Date;
 @Table(name = "token")
 public class Token {
 
-    public Token() {
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    //@Column(name = "ID", unique = true, nullable = false)
+    @Column(name = "ID", unique = true, nullable = false)
     private Integer id;
 
-    //@Column(name = "LOGIN_DATE")
+    @Column(name = "LOGIN_DATE")
     private Date loginDate;
 
-    //@Column(name = "TOKEN")
+    @Column(name = "TOKEN")
     private String token;
 
     public Integer getId() {
@@ -51,5 +52,7 @@ public class Token {
         this.token = token;
     }
 
+    public Token() {
+    }
 
 }

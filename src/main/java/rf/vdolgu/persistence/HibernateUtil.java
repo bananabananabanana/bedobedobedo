@@ -13,7 +13,7 @@ public class HibernateUtil {
     private static SessionFactory buildSessionFactory() {
         try {
             // Create the SessionFactory from hibernate.cfg.xml
-            System.out.println("qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq");
+            System.out.println("HiberUtil");
             return new AnnotationConfiguration().configure().buildSessionFactory();
 
 
