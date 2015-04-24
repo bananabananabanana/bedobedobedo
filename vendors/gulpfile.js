@@ -29,17 +29,27 @@ var sources = {
 var www = {
     application: '../www/application',
     images: '../www/images',
+    fonts: '../www/fonts',
     libraries: '../www/libraries',
     templates: '../www/templates'
 };
 
 // Vendors
 var vendors = {
+    fonts: [
+        '../vendors/bower_components/ionic/release/fonts/**'
+    ],
     scripts: [
         '../vendors/bower_components/angular/angular.js',
         '../vendors/bower_components/angular-animate/angular-animate.js',
-        '../vendors/bower_components/angular-route/angular-route.js',
-        '../vendors/bower_components/angular-touch/angular-touch.js'
+        '../vendors/bower_components/angular-route/angular-ui-route.js',
+        '../vendors/bower_components/angular-sanitize/angular-sanitize.js',
+        '../vendors/bower_components/ionic/release/js/ionic.bundle.js',
+        '../vendors/bower_components/ionic/release/js/ionic.js',
+        '../vendors/bower_components/ionic/release/js/ionic-angular.js'
+    ],
+    styles: [
+        '../vendors/bower_components/ionic/release/css/ionic.css'
     ]
 };
 
@@ -69,10 +79,23 @@ gulp.task('image', function () {
 
 // Библиотеки
 gulp.task('library', function () {
+    // Шрифты
+    gulp.src(vendors.fonts)
+        .pipe(gulp.dest(www.fonts));
+
+    // Скрипты
     gulp.src(vendors.scripts) // исходники
         .pipe(sourcemaps.init()) // инициализация карт
         .pipe(concat('lib.min.js')) // конкатенация
         .pipe(uglify()) // минификация
+        .pipe(sourcemaps.write()) // запись карт
+        .pipe(gulp.dest(www.libraries)); // сохранение
+
+    // Стили
+    gulp.src(vendors.styles) // исходники
+        .pipe(sourcemaps.init()) // инициализация карт
+        .pipe(concat('lib.min.css')) // конкатенация
+        .pipe(minifyCSS()) // минификация
         .pipe(sourcemaps.write()) // запись карт
         .pipe(gulp.dest(www.libraries)); // сохранение
 });
