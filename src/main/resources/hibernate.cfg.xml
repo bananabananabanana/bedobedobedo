@@ -19,7 +19,5 @@
 
         <mapping class="rf.vdolgu.model.Token"></mapping>
 
-
-
     </session-factory>
 </hibernate-configuration>
