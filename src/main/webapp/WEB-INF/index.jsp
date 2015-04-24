@@ -26,6 +26,8 @@
     </div>
 </nav>
 
+Вдолгушечка
+
 <div class="container" style="margin-top: 50px;">
     <section ng-view=""></section>
 </div>
