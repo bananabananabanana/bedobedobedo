@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import rf.vdolgu.model.User;
-import rf.vdolgu.model.Credit;
+//import rf.vdolgu.model.Credit;
 
 /**
  * Created by mil on 13.04.2015.
