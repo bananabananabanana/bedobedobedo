@@ -7,29 +7,10 @@
     <title>Document</title>
     <link href="/application/app.min.css" rel="stylesheet">
     <base href="/">
-
-    <!-- Latest compiled and minified CSS -->
-    <!--<%&#45;&#45;<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">&#45;&#45;%>-->
-
-    <!-- Optional theme -->
-    <!--<%&#45;&#45;<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">&#45;&#45;%>-->
-
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <ul class="nav navbar-nav">
-            <li><a ng-href="/">Index</a></li>
-            <li><a ng-href="/home">Home</a></li>
-            <li><a ng-href="/home/john">Home John</a></li>
-        </ul>
-    </div>
-</nav>
-
-<div class="container" style="margin-top: 50px;">
-    <section ng-view=""></section>
-</div>
-
+<a ng-href="/">Index</a> | <a ng-href="/home">Home</a> | <a ng-href="/home/john">Home John</a>
+<section ng-view></section>
 <script src="/libraries/lib.min.js"></script>
 <script src="/application/app.min.js"></script>
 </body>

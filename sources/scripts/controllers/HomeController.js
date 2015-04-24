@@ -5,4 +5,4 @@ function HomeController(scope, Home) {
         });
     };
 }
-HomeController.$inject = ["$scope", "Home"];
+HomeController.$inject = ['$scope', 'Home'];

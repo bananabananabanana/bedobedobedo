@@ -1,7 +1,15 @@
 function Home(http) {
     this.getUser = function (callback) {
-        http.get('/home/getData')
-            .success(callback);
+        var data = [];
+        for (var i = 0; i < 10; i++) {
+            data.push({
+                id: i,
+                name: 'User ' + i
+            });
+        }
+        callback(data);
+        //http.get('')
+        //    .success(callback);
     };
 }
-Home.$inject = ["$http"];
+Home.$inject = ['$http'];

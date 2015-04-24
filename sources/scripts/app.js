@@ -1,12 +1,10 @@
-angular.module("app", ["ngRoute"])
+angular.module('app', ['ngRoute'])
     .config(config)
     .controller({
-        "HomeController": HomeController,
-        "MainController": MainController,
-        "UserController": UserController
+        'HomeController': HomeController,
+        'MainController': MainController,
+        'UserController': UserController
     })
     .service({
-        "Home": Home
+        'Home': Home
     });
-
-console.log("SHELKENE BELKENE");
