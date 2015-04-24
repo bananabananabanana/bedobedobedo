@@ -1,3 +1,6 @@
-.idea/
-target/
-*.iml
+vendors/bower_components
+vendors/node_modules
+www/application
+www/images
+www/libraries
+www/templates
