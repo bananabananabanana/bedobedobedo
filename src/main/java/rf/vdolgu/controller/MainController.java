@@ -34,8 +34,13 @@ public class MainController {
 
     @RequestMapping(value = "/getData", method = RequestMethod.POST)
     @ResponseBody
+    public List<User> getData() {
+        return userDAO.getAllUsers();
+    }
+
+/*    @RequestMapping(value = "/getData", method = RequestMethod.POST)
+    @ResponseBody
     public String getData() {
-        //return userDAO.getAllUsers();
         return "[{" +
                 "                \"id\": 1,\n" +
                 "                \"image\": \"http://placehold.it/40x40\",\n" +
@@ -43,7 +48,7 @@ public class MainController {
                 "                \"rating\": 123,\n" +
                 "                \"vkid\": 1639840" +
                 "}]";
-    }
+    }*/
 
 /*    @RequestMapping(value = "/{user}", method = RequestMethod.GET)
     public String getUser(@PathVariable("user") String user) {

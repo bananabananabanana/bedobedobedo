@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import rf.vdolgu.model.User;
-//import rf.vdolgu.model.Credit;
 
 /**
  * Created by mil on 13.04.2015.
@@ -46,9 +45,10 @@ public class Connect {
                         resultSet.getInt(1),
                         resultSet.getString(2),
                         resultSet.getString(3),
-                        resultSet.getInt(4)
+                        resultSet.getString(4),
+                        resultSet.getDate(5)
                 );
-                System.out.println(user.getId() + " _ " + user.getName());
+                System.out.println(user.getId() + " _ " + user.getFirstName());
                 users.add(user);
             }
 
@@ -68,6 +68,8 @@ public class Connect {
     public void insertUser(User user) {
         Connection connection = null;
 
+        System.out.println("insertUser");
+
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException e) {
@@ -83,11 +85,17 @@ public class Connect {
 
         try {
             connection = DriverManager.getConnection(URL, LOGIN, PASSWORD);
-            Statement statement = connection.createStatement();
-            statement.
-                    executeUpdate("INSERT INTO users (name, access_token, user_id) VALUE ('"
-                            + user.getName() + "', '" + user.getAccess_token() + "', " + user.getUser_id() + ");");
 
+            String query = "INSERT INTO users (FIRST_NAME, LAST_NAME, PATRANOMIC, CREATE_DATE) VALUE (?,?,?,?);";
+
+            PreparedStatement preparedStmt = connection.prepareStatement(query);
+            preparedStmt.setString(1, user.getFirstName());
+            preparedStmt.setString(2, user.getLastName());
+            preparedStmt.setString(3, user.getPatranomic());
+            preparedStmt.setDate(4, new java.sql.Date(user.getDateCreate().getTime()));
+            preparedStmt.execute();
+
+            connection.close();
 
         } catch (SQLException e) {
             e.printStackTrace();

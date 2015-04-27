@@ -1,13 +1,16 @@
 package rf.vdolgu.model;
 
+import java.util.Date;
+
 /**
  * Created by mil on 03.04.15.
  */
 public class User {
     private Integer id;
-    private String name;
-    private String access_token;
-    private Integer user_id;
+    private String firstName;
+    private String lastName;
+    private String patranomic;
+    private Date dateCreate;
 
     public Integer getId() {
         return id;
@@ -17,48 +20,53 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getAccess_token() {
-        return access_token;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setAccess_token(String access_token) {
-        this.access_token = access_token;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public String getPatranomic() {
+        return patranomic;
     }
 
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
+    public void setPatranomic(String patranomic) {
+        this.patranomic = patranomic;
+    }
+
+    public Date getDateCreate() {
+        return dateCreate;
+    }
+
+    public void setDateCreate(Date dateCreate) {
+        this.dateCreate = dateCreate;
     }
 
     public User() {
     }
 
-    public User(String name) {
-        this.name = name;
+    public User(String firstName, String lastName, String patranomic, Date dateCreate) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.patranomic = patranomic;
+        this.dateCreate = dateCreate;
     }
 
-    public User(String name, String access_token, Integer user_id) {
-        this.name = name;
-        this.access_token = access_token;
-        this.user_id = user_id;
-    }
-
-    public User(Integer id, String name, String access_token, Integer user_id) {
+    public User(Integer id, String firstName, String lastName, String patranomic, Date dateCreate) {
         this.id = id;
-        this.name = name;
-        this.access_token = access_token;
-        this.user_id = user_id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.patranomic = patranomic;
+        this.dateCreate = dateCreate;
     }
-
 }

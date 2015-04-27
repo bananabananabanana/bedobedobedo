@@ -16,6 +16,7 @@ import java.io.InputStreamReader;
 import java.io.Serializable;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Date;
 
 @Controller
 @RequestMapping("/login")
@@ -53,12 +54,14 @@ public class LoginController implements Serializable {
                 System.out.println("print user_id: " + user_id);
 
                 User user = new User();
-                user.setName("banana");
-                user.setAccess_token(access_token);
-                user.setUser_id(new Integer(user_id));
+                user.setFirstName("banana");
+                user.setLastName("banana2");
+                user.setPatranomic("banana3");
+                user.setDateCreate(new Date());
 
                 UserDAO userDAO = new UserDAOImpl();
                 userDAO.insertUser(user);
+                System.out.println(user.getFirstName() + "is create");
 
             } catch (Exception e) {
                 e.printStackTrace();
