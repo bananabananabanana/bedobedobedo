@@ -9,7 +9,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import rf.vdolgu.dao.UserDAO;
 import rf.vdolgu.dao.UserDAOImpl;
+import rf.vdolgu.dao.TokenDAO;
+import rf.vdolgu.dao.TokenDAOImpl;
+
+import rf.vdolgu.model.Token;
 import rf.vdolgu.model.User;
+
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -36,11 +41,13 @@ public class LoginController implements Serializable {
 
     @RequestMapping(method = RequestMethod.GET, params="code")
     public String getCode(@RequestParam("code") String code) throws Exception {
+
+        Integer idUser = null;
+
         System.out.println(code);
         if (code != null) {
             try {
-                String ResponseCode = sendGet(code);
-                System.out.println("print result after sendGet: " + ResponseCode);
+                /*String ResponseCode = sendCode(code);
 
                 //insert JSON serialaized
                 JSONParser parser = new JSONParser();
@@ -48,11 +55,9 @@ public class LoginController implements Serializable {
                 JSONObject jsonObj = (JSONObject) obj;
 
                 String access_token = jsonObj.get("access_token").toString();
-                String user_id = jsonObj.get("user_id").toString();
+                String user_id = jsonObj.get("user_id").toString();*/
 
-                System.out.println("print access_token: " + access_token);
-                System.out.println("print user_id: " + user_id);
-
+                //New User for insert into DB
                 User user = new User();
                 user.setFirstName("banana");
                 user.setLastName("banana2");
@@ -60,8 +65,25 @@ public class LoginController implements Serializable {
                 user.setDateCreate(new Date());
 
                 UserDAO userDAO = new UserDAOImpl();
-                userDAO.insertUser(user);
-                System.out.println(user.getFirstName() + "is create");
+                idUser = userDAO.insertUser(user);
+
+                System.err.println("id user=" + idUser);
+
+                System.out.println(user.getFirstName() + " user is create");
+
+
+                //New Token for insert into DB
+                Token token = new Token();
+                token.setIdUser(idUser);
+                token.setToken("fds");
+                token.setDateCreate(new Date());
+                token.setUserAgent("ggg");
+
+                TokenDAO tokenDAO = new TokenDAOImpl();
+                tokenDAO.insertToken(token);
+
+                System.out.println(token.getToken() + " token is create");
+
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -72,7 +94,7 @@ public class LoginController implements Serializable {
     }
 
     // HTTP GET request
-    private String sendGet(String code) throws Exception {
+    private String sendCode(String code) throws Exception {
 
         String url = "https://oauth.vk.com/access_token?" +
                 "client_id=4859620&" +

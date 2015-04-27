@@ -19,11 +19,11 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public void insertUser(User user) {
+    public Integer insertUser(User user) {
 
         Connect connect = new Connect();
 
-        connect.insertUser(user);
+        return connect.insertUser(user);
 
     }
 
