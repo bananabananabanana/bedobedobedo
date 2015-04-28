@@ -11,6 +11,7 @@ public class User {
     private String lastName;
     private String patranomic;
     private Date dateCreate;
+    private Integer idVk;
 
     public Integer getId() {
         return id;
@@ -52,21 +53,31 @@ public class User {
         this.dateCreate = dateCreate;
     }
 
+    public Integer getIdVk() {
+        return idVk;
+    }
+
+    public void setIdVk(Integer idVk) {
+        this.idVk = idVk;
+    }
+
     public User() {
     }
 
-    public User(String firstName, String lastName, String patranomic, Date dateCreate) {
+    public User(String firstName, String lastName, String patranomic, Date dateCreate, Integer idVk) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.patranomic = patranomic;
         this.dateCreate = dateCreate;
+        this.idVk = idVk;
     }
 
-    public User(Integer id, String firstName, String lastName, String patranomic, Date dateCreate) {
+    public User(Integer id, String firstName, String lastName, String patranomic, Date dateCreate, Integer idVk) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.patranomic = patranomic;
         this.dateCreate = dateCreate;
+        this.idVk = idVk;
     }
 }

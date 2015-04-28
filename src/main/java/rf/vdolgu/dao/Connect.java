@@ -13,8 +13,8 @@ import rf.vdolgu.model.Token;
  * Created by mil on 13.04.2015.
  */
 public class Connect {
-
-    private static final String URL = "jdbc:mysql://192.168.50.17:3306/banana";
+///characterEncoding=utf-8&useUnicode=true
+    private static final String URL = "jdbc:mysql://192.168.50.17:3306/banana?characterEncoding=utf-8&useUnicode=true";
     private static final String LOGIN = "banana";
     private static final String PASSWORD = "y3l0l3k0r";
 
@@ -68,6 +68,10 @@ public class Connect {
 
     }*/
 
+    /**
+     *
+     * @return
+     */
     public List<User> getAllUsers() {
         Connection connection = null;
         List <User> users = new ArrayList<User>();
@@ -97,7 +101,8 @@ public class Connect {
                         resultSet.getString(2),
                         resultSet.getString(3),
                         resultSet.getString(4),
-                        resultSet.getDate(5)
+                        resultSet.getDate(5),
+                        resultSet.getInt(6)
                 );
                 System.out.println(user.getId() + " _ " + user.getFirstName());
                 users.add(user);
@@ -139,13 +144,14 @@ public class Connect {
         try {
             connection = DriverManager.getConnection(URL, LOGIN, PASSWORD);
 
-            String query = "INSERT INTO users (FIRST_NAME, LAST_NAME, PATRANOMIC, CREATE_DATE) VALUE (?,?,?,?);";
+            String query = "INSERT INTO users (FIRST_NAME, LAST_NAME, PATRANOMIC, CREATE_DATE, ID_VK) VALUE (?,?,?,?,?);";
 
             PreparedStatement preparedStmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             preparedStmt.setString(1, user.getFirstName());
             preparedStmt.setString(2, user.getLastName());
             preparedStmt.setString(3, user.getPatranomic());
             preparedStmt.setDate(4, new java.sql.Date(user.getDateCreate().getTime()));
+            preparedStmt.setInt(5, user.getIdVk().intValue());
             //preparedStmt.execute();
             preparedStmt.executeUpdate();
 
@@ -159,6 +165,7 @@ public class Connect {
             connection.close();
 
         } catch (SQLException e) {
+
             e.printStackTrace();
         }
 
