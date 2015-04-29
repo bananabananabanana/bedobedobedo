@@ -102,7 +102,9 @@ public class Connect {
                         resultSet.getString(3),
                         resultSet.getString(4),
                         resultSet.getDate(5),
-                        resultSet.getInt(6)
+                        resultSet.getInt(6),
+                        resultSet.getString(7),
+                        resultSet.getDouble(8)
                 );
                 System.out.println(user.getId() + " _ " + user.getFirstName());
                 users.add(user);
@@ -144,7 +146,7 @@ public class Connect {
         try {
             connection = DriverManager.getConnection(URL, LOGIN, PASSWORD);
 
-            String query = "INSERT INTO users (FIRST_NAME, LAST_NAME, PATRANOMIC, CREATE_DATE, ID_VK) VALUE (?,?,?,?,?);";
+            String query = "INSERT INTO users (FIRST_NAME, LAST_NAME, PATRANOMIC, CREATE_DATE, ID_VK, IMAGE, RATING) VALUE (?,?,?,?,?,?,?);";
 
             PreparedStatement preparedStmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             preparedStmt.setString(1, user.getFirstName());
@@ -152,6 +154,8 @@ public class Connect {
             preparedStmt.setString(3, user.getPatranomic());
             preparedStmt.setDate(4, new java.sql.Date(user.getDateCreate().getTime()));
             preparedStmt.setInt(5, user.getIdVk().intValue());
+            preparedStmt.setString(6, user.getImage());
+            preparedStmt.setDouble(7, user.getRating());
             //preparedStmt.execute();
             preparedStmt.executeUpdate();
 

@@ -12,6 +12,8 @@ public class User {
     private String patranomic;
     private Date dateCreate;
     private Integer idVk;
+    private String image;
+    private Double rating;
 
     public Integer getId() {
         return id;
@@ -61,23 +63,43 @@ public class User {
         this.idVk = idVk;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public Double getRating() {
+        return rating;
+    }
+
+    public void setRating(Double rating) {
+        this.rating = rating;
+    }
+
     public User() {
     }
 
-    public User(String firstName, String lastName, String patranomic, Date dateCreate, Integer idVk) {
+    public User(String firstName, String lastName, String patranomic, Date dateCreate, Integer idVk, String image, Double rating) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.patranomic = patranomic;
         this.dateCreate = dateCreate;
         this.idVk = idVk;
+        this.image = image;
+        this.rating = rating;
     }
 
-    public User(Integer id, String firstName, String lastName, String patranomic, Date dateCreate, Integer idVk) {
+    public User(Integer id, String firstName, String lastName, String patranomic, Date dateCreate, Integer idVk, String image, Double rating) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.patranomic = patranomic;
         this.dateCreate = dateCreate;
         this.idVk = idVk;
+        this.image = image;
+        this.rating = rating;
     }
 }

@@ -85,6 +85,8 @@ public class LoginController implements Serializable {
                 user.setPatranomic("patranomic");
                 user.setDateCreate(new Date());
                 user.setIdVk(Integer.parseInt(user_id));
+                user.setImage("ggg");
+                user.setRating(1.5);
 
                 UserDAO userDAO = new UserDAOImpl();
                 idUser = userDAO.insertUser(user);
