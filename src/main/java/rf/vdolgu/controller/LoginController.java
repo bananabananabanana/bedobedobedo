@@ -74,6 +74,7 @@ public class LoginController implements Serializable {
 
                 String first_name = (String) jsonObj.get("first_name");
                 String last_name = (String) jsonObj.get("last_name");
+                String photo_50 = (String) jsonObj.get("photo_50");
                 //String patranomic = jsonObj.get("patranomic").toString();
 
                 //System.out.println(first_name+" = "+last_name);
@@ -85,7 +86,7 @@ public class LoginController implements Serializable {
                 user.setPatranomic("patranomic");
                 user.setDateCreate(new Date());
                 user.setIdVk(Integer.parseInt(user_id));
-                user.setImage("ggg");
+                user.setImage(photo_50);
                 user.setRating(1.5);
 
                 UserDAO userDAO = new UserDAOImpl();

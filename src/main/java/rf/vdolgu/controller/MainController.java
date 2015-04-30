@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 import rf.vdolgu.dao.UserDAO;
 import rf.vdolgu.dao.UserDAOImpl;
 import rf.vdolgu.model.User;
@@ -22,14 +23,12 @@ public class MainController {
 
     UserDAO userDAO = new UserDAOImpl();
 
-    @RequestMapping(method = RequestMethod.GET)
-    public String index() {
-        return "index";
-    }
-
-    @RequestMapping(value = "/friend", method = RequestMethod.GET)
+    @RequestMapping(value = {"/", "/friend**"}, method = RequestMethod.GET)
     public String friend() {
-        return "index";
+        ModelAndView model = new ModelAndView();
+        model.setViewName("index");
+        return model.getViewName();
+        //return "index";
     }
 
     @RequestMapping(value = "/getData", method = RequestMethod.POST)
