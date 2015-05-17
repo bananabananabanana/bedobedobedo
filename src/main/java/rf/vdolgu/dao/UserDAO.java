@@ -5,9 +5,12 @@ import rf.vdolgu.model.User;
 import java.util.List;
 
 /**
- * Created by mil on 13.04.2015.
+ * Created by Vano on 17.05.2015.
  */
-public interface UserDAO {
+
+public interface UserDao {
+
     public List<User> getAllUsers();
     public Integer insertUser(User user);
+
 }

@@ -5,9 +5,10 @@ import rf.vdolgu.model.Token;
 import java.util.List;
 
 /**
- * Created by mil on 27.04.15.
+ * Created by Vano on 17.05.2015.
  */
-public interface TokenDAO {
+public interface TokenDao {
+
     public List<Token> getAllTokens();
     public void insertToken(Token token);
     public void deleteToken();

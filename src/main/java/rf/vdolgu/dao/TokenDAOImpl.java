@@ -1,31 +1,34 @@
 package rf.vdolgu.dao;
 
+import org.springframework.stereotype.Repository;
 import rf.vdolgu.model.Token;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
 /**
- * Created by mil on 27.04.15.
+ * Created by Vano on 17.05.2015.
  */
-public class TokenDAOImpl implements TokenDAO {
+@Repository
+public class TokenDaoImpl implements TokenDao {
+
+    @PersistenceContext
+    EntityManager entityManager;
+
     @Override
     public List<Token> getAllTokens() {
-        Connect connect = new Connect();
-
-
-        return null;
+        return entityManager.createQuery("select t from Token t").getResultList();
     }
 
     @Override
     public void insertToken(Token token) {
-        Connect connect = new Connect();
-        connect.insertToken(token);
-
+        entityManager.persist(token);
     }
 
     @Override
     public void deleteToken() {
-        Connect connect = new Connect();
+        System.out.println("Пустой метод deleteToken");
 
     }
 }

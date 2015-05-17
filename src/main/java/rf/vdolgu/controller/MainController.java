@@ -1,17 +1,19 @@
 package rf.vdolgu.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import rf.vdolgu.dao.UserDAO;
-import rf.vdolgu.dao.UserDAOImpl;
+import rf.vdolgu.dao.UserDao;
 import rf.vdolgu.model.User;
 
-import java.util.ArrayList;
 import java.util.List;
+
+/**
+ * Created by Vano on 17.05.2015.
+ */
 
 @Controller
 @RequestMapping("/main")
@@ -21,23 +23,27 @@ public class MainController {
         System.out.println("MainController");
     }
 
-    UserDAO userDAO = new UserDAOImpl();
+    @Autowired
+    UserDao userDao;
 
-    @RequestMapping(value = {"/", "/friend**"}, method = RequestMethod.GET)
+
+    @RequestMapping(method = RequestMethod.GET)
+    public String index() {
+        return "index";
+    }
+
+    @RequestMapping(value =  "/friend**", method = RequestMethod.GET)
     public String friend() {
-        ModelAndView model = new ModelAndView();
-        model.setViewName("index");
-        return model.getViewName();
-        //return "index";
+        return "index";
     }
 
     @RequestMapping(value = "/getData", method = RequestMethod.POST)
     @ResponseBody
     public List<User> getData() {
-        return userDAO.getAllUsers();
+        return userDao.getAllUsers();
     }
 
-/*    @RequestMapping(value = "/getData", method = RequestMethod.POST)
+ /*   @RequestMapping(value = "/getData", method = RequestMethod.POST)
     @ResponseBody
     public String getData() {
         return "[{" +
@@ -49,9 +55,7 @@ public class MainController {
                 "}]";
     }*/
 
-/*    @RequestMapping(value = "/{user}", method = RequestMethod.GET)
-    public String getUser(@PathVariable("user") String user) {
-        System.out.println(user);
-        return "index";
-    }*/
+
+
+
 }

@@ -1,30 +1,31 @@
 package rf.vdolgu.dao;
 
+import org.springframework.stereotype.Repository;
 import rf.vdolgu.model.User;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
 /**
- * Created by mil on 13.04.2015.
+ * Created by Vano on 17.05.2015.
  */
-public class UserDAOImpl implements UserDAO {
+
+@Repository
+public class UserDaoImpl implements UserDao{
+
+    @PersistenceContext
+    EntityManager entityManager;
+
+
     @Override
     public List<User> getAllUsers() {
-
-        Connect connect = new Connect();
-
-        List<User> users = connect.getAllUsers();
-
-        return users;
+        return entityManager.createQuery("select u from User u").getResultList();
     }
 
     @Override
     public Integer insertUser(User user) {
-
-        Connect connect = new Connect();
-
-        return connect.insertUser(user);
-
+        entityManager.persist(user);
+        return user.getId();
     }
-
 }

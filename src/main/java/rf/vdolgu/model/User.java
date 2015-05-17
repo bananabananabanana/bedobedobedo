@@ -1,11 +1,20 @@
 package rf.vdolgu.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 
 /**
  * Created by mil on 03.04.15.
  */
+@Entity
+@Table (name = "userd")
 public class User {
+
+    @Id
+    @GeneratedValue
     private Integer id;
     private String firstName;
     private String lastName;

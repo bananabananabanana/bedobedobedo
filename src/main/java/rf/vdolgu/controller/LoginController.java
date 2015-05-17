@@ -3,32 +3,38 @@ package rf.vdolgu.controller;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import rf.vdolgu.dao.UserDAO;
-import rf.vdolgu.dao.UserDAOImpl;
-import rf.vdolgu.dao.TokenDAO;
-import rf.vdolgu.dao.TokenDAOImpl;
-
 import rf.vdolgu.model.Token;
 import rf.vdolgu.model.User;
-
+import rf.vdolgu.service.TokenService;
+import rf.vdolgu.service.UserService;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.io.Serializable;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Date;
-import java.util.List;
 
+/**
+ * Created by Vano on 17.05.2015.
+ */
 @Controller
 @RequestMapping("/login")
-public class LoginController implements Serializable {
+public class LoginController {
 
     private final String USER_AGENT = "Mozilla/5.0";
+
+
+    @Autowired
+    UserService userService;
+
+
+    @Autowired
+    TokenService tokenService;
 
     public LoginController(){
         System.out.println("LoginController");
@@ -89,8 +95,8 @@ public class LoginController implements Serializable {
                 user.setImage(photo_50);
                 user.setRating(1.5);
 
-                UserDAO userDAO = new UserDAOImpl();
-                idUser = userDAO.insertUser(user);
+
+                idUser = userService.insertUser(user);
 
                 System.err.println("id user=" + idUser);
 
@@ -104,8 +110,8 @@ public class LoginController implements Serializable {
                 token.setDateCreate(new Date());
                 token.setUserAgent("ggg");
 
-                TokenDAO tokenDAO = new TokenDAOImpl();
-                tokenDAO.insertToken(token);
+
+                tokenService.insertToken(token);
 
                 System.out.println(token.getToken() + " token is create");
 
@@ -176,6 +182,7 @@ public class LoginController implements Serializable {
         System.out.println("print result: " + response.toString());
         return response.toString();
     }
+
 
 
 }

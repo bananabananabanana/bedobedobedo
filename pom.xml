@@ -4,7 +4,7 @@
     <groupId>net.bonvio</groupId>
     <artifactId>xn--b1acc2ao6a.xn--p1ai</artifactId>
     <packaging>war</packaging>
-    <version>0.0.1</version>
+    <version>1</version>
     <name>os Maven Webapp</name>
     <url>http://maven.apache.org</url>
 
@@ -68,15 +68,15 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
             <version>${spring.version}</version>
-            <exclusions>
+            <!-- <exclusions>
 
-                <!-- Exclude Commons Logging in favor of SLF4j -->
-                <exclusion>
-                    <groupId>commons-logging</groupId>
-                    <artifactId>commons-logging</artifactId>
-                </exclusion>
+                 &lt;!&ndash; Exclude Commons Logging in favor of SLF4j &ndash;&gt;
+                 <exclusion>
+                     <groupId>commons-logging</groupId>
+                     <artifactId>commons-logging</artifactId>
+                 </exclusion>
 
-            </exclusions>
+             </exclusions>-->
         </dependency>
 
         <!--org.springframework.security-->
@@ -104,6 +104,14 @@
             <version>${springframework.security.version}</version>
         </dependency>
 
+
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>1.6.1.RELEASE</version>
+        </dependency>
+
+
         <!-- jstl for jsp page -->
         <dependency>
             <groupId>jstl</groupId>
@@ -112,7 +120,7 @@
         </dependency>
 
         <!--org.apache.poi-->
-        <dependency>
+        <!--<dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
             <version>${apache.poi.version}</version>
@@ -128,7 +136,7 @@
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
             <version>${apache.poi.version}</version>
-        </dependency>
+        </dependency>-->
 
         <!--jackson-core-lgpl-->
         <dependency>
@@ -145,12 +153,19 @@
         </dependency>
 
         <!--jstl-->
-        <dependency>
+        <!--<dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
             <version>2.5</version>
             <scope>provided</scope>
+        </dependency>-->
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
         </dependency>
+
 
         <dependency>
             <groupId>javax.persistence</groupId>
@@ -165,24 +180,50 @@
         </dependency>
 
         <!-- Hibernate core -->
-        <dependency>
+        <!--<dependency>
             <groupId>hibernate</groupId>
             <artifactId>hibernate3</artifactId>
             <version>3.2.3.GA</version>
+        </dependency>-->
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>4.3.5.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>4.3.5.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>4.2.0.Final</version>
         </dependency>
 
         <!-- Hibernate annotation -->
-        <dependency>
+        <!--<dependency>
             <groupId>hibernate-annotations</groupId>
             <artifactId>hibernate-annotations</artifactId>
             <version>3.3.0.GA</version>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>hibernate-commons-annotations</groupId>
             <artifactId>hibernate-commons-annotations</artifactId>
             <version>3.0.0.GA</version>
         </dependency>
+
+
+        <!-- For connection pooling -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-c3p0</artifactId>
+            <version>4.3.5.Final</version>
+        </dependency>
+
 
         <!-- Hibernate library dependecy start -->
         <dependency>
@@ -203,6 +244,13 @@
             <version>3.2.1</version>
         </dependency>
 
+
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>1.3.1</version> <!-- makesure correct version here -->
+        </dependency>
+
         <dependency>
             <groupId>cglib</groupId>
             <artifactId>cglib</artifactId>
@@ -210,18 +258,20 @@
         </dependency>
         <!-- Hibernate library dependecy end -->
 
-        <dependency>
-            <groupId>javax.transaction</groupId>
-            <artifactId>jta</artifactId>
-            <version>1.1</version>
-        </dependency>
+        <!-- <dependency>
+             <groupId>javax.transaction</groupId>
+             <artifactId>jta</artifactId>
+             <version>1.1</version>
+         </dependency>-->
 
     </dependencies>
 
     <build>
+
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
+
                 <configuration>
                     <source>1.6</source>
                     <target>1.6</target>

@@ -1,4 +1,4 @@
-package rf.vdolgu.dao;
+package rf.dao;
 
 import com.mysql.fabric.jdbc.FabricMySQLDriver;
 
