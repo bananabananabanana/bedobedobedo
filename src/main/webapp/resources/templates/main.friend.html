@@ -1,0 +1,20 @@
+<ion-view title="Друзья" class="has-tabs-top" ng-init="getFriendsOnline()">
+    <ion-content class="has-tabs-top">
+        <ion-refresher on-refresh="refreshFriends()"></ion-refresher>
+        <ion-list>
+            <ion-item class="item-avatar-left item-avatar-square"
+                      ng-repeat="friend in friends"
+                      ng-click="showModal(friend)">
+                <img ng-src="{{friend.image}}">
+
+                <h2>{{friend.fullname}}</h2>
+
+                <p>Рейтинг: {{friend.rating}}</p>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+    <ion-tabs class="tabs-top tabs-striped tabs-full">
+        <ion-tab title="Онлайн" ng-click="setTab(0)"></ion-tab>
+        <ion-tab title="Все" ng-click="setTab(1)"></ion-tab>
+    </ion-tabs>
+</ion-view>
