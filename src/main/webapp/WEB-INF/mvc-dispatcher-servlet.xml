@@ -54,8 +54,6 @@
     <bean id="multipartResolver"
           class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
 
-
-
     <tx:annotation-driven transaction-manager="transactionManager" />
 
     <!-- JPA Repositories -->

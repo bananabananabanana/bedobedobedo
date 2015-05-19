@@ -94,7 +94,7 @@ public class LoginController {
                 user.setImage(photo_50);
                 user.setRating(1.5);
 
-
+                System.out.println(user);
                 idUser = userService.insertUser(user);
 
                 System.err.println("id user=" + idUser);

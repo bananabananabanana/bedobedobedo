@@ -24,6 +24,21 @@ public class User {
     private String image;
     private Double rating;
 
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", patranomic='" + patranomic + '\'' +
+                ", dateCreate=" + dateCreate +
+                ", idVk=" + idVk +
+                ", image='" + image + '\'' +
+                ", rating=" + rating +
+                '}';
+    }
+
     public Integer getId() {
         return id;
     }
