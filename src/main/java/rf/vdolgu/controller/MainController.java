@@ -5,9 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
-import rf.vdolgu.dao.UserDao;
 import rf.vdolgu.model.User;
+import rf.vdolgu.service.UserService;
 
 import java.util.List;
 
@@ -24,7 +23,7 @@ public class MainController {
     }
 
     @Autowired
-    UserDao userDao;
+    UserService userService;
 
 
     @RequestMapping(method = RequestMethod.GET)
@@ -40,7 +39,7 @@ public class MainController {
     @RequestMapping(value = "/getData", method = RequestMethod.POST)
     @ResponseBody
     public List<User> getData() {
-        return userDao.getAllUsers();
+        return userService.getAllUsers();
     }
 
  /*   @RequestMapping(value = "/getData", method = RequestMethod.POST)

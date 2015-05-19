@@ -11,7 +11,7 @@ import java.util.List;
  * Created by Vano on 17.05.2015.
  */
 @Repository
-public class TokenDaoImpl implements TokenDao {
+public class TokenDAOImpl implements TokenDAO{
 
     @PersistenceContext
     EntityManager entityManager;

@@ -8,7 +8,7 @@ import java.util.List;
  * Created by Vano on 17.05.2015.
  */
 
-public interface UserDao {
+public interface UserDAO {
 
     public List<User> getAllUsers();
     public Integer insertUser(User user);

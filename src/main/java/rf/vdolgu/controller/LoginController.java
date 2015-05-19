@@ -28,7 +28,6 @@ public class LoginController {
 
     private final String USER_AGENT = "Mozilla/5.0";
 
-
     @Autowired
     UserService userService;
 

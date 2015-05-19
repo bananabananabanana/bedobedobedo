@@ -1,0 +1,16 @@
+.tabs-full .tabs .tab-item {
+  max-width: none;
+}
+.tabs-striped .tab-item {
+  margin-top: 1px;
+}
+.tabs-striped .tab-item .tab-item-active {
+  margin-top: 0;
+}
+.slider {
+  height: 100%;
+}
+::-webkit-inner-spin-button,
+::-webkit-calendar-picker-indicator {
+  display: none;
+}

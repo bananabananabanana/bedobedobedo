@@ -1,0 +1,33 @@
+<ion-view view-title="Профиль" ng-init="getProfile()">
+    <ion-content>
+        <ion-list>
+            <ion-item class="item-thumbnail-left">
+                <img ng-src="{{profile.image}}">
+
+                <h2>{{profile.fullname}}</h2>
+
+                <p>Рейтинг: {{profile.rating}}</p>
+            </ion-item>
+            <ion-item class="item-divider">
+                Вы дали в долг
+            </ion-item>
+            <ion-item class="item-avatar-left item-avatar-square"
+                      ng-repeat="debtor in profile.debtors"
+                      ng-click="showModal(debtor.id)">
+                <img ng-src="{{debtor.image}}">
+
+                <h2>{{debtor.fullname}}</h2>
+            </ion-item>
+            <ion-item class="item-divider">
+                Вам дали в долг
+            </ion-item>
+            <ion-item class="item-avatar-left item-avatar-square"
+                      ng-repeat="creditor in profile.creditors"
+                      ng-click="showModal(creditor.id)">
+                <img ng-src="{{creditor.image}}">
+
+                <h2>{{creditor.fullname}}</h2>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
